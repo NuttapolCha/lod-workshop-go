@@ -29,4 +29,6 @@ type Product struct {
 	Quantity int
 }
 
-func HandlePersonPurchaseProduct(person *Person, shop *Shop, productName string) {}
+func HandlePersonPurchaseProducts(person *Person, shop *Shop, productName string, quantity int) bool {
+	return false
+}
