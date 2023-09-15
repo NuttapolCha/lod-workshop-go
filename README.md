@@ -60,3 +60,63 @@ Try to implement the *HandlePersonPurchaseProductsWithPromotion* then try to tes
 ```sh
 make test
 ```
+
+## Appendix
+
+### LoD
+
+The Law of Demeter (LoD) or principle of least knowledge is a design guideline for developing software, particularly object-oriented programs. In its general form, the LoD is a specific case of loose coupling. The guideline was proposed at Northeastern University towards the end of 1987, and can be succinctly summarized in each of the following ways:
+
+- Each unit should have only limited knowledge about other units: only units "closely" related to the current unit.
+- Each unit should only talk to its friends; don't talk to strangers.
+- Only talk to your immediate friends.
+
+#### Bad Example
+
+```go
+type Money struct {
+	Amount int
+}
+
+type Wallet struct {
+	Cash Money
+}
+
+type Person struct {
+	Name   string
+	Wallet Wallet
+}
+
+func (p Person) CanAfford(amount int) bool {
+    return p.Wallet.Cash.Amount >= amount
+}
+```
+
+#### Good Example
+
+```go
+type Money struct {
+	Amount int
+}
+
+func (money Money) CanSpendBy(amount int) bool {
+    return money.Amount >= amount
+}
+
+type Wallet struct {
+	Cash Money
+}
+
+func (w Wallet) CanSpendBy(amount int) bool {
+    return w.Cash.CanSpendBy(amount)
+}
+
+type Person struct {
+	Name   string
+	Wallet Wallet
+}
+
+func (p Person) CanAfford(amount int) bool {
+    return p.Wallet.CanSpendBy(amount)
+}
+```
