@@ -10,7 +10,7 @@ You will learn by doing the exercises in this workshop.
 1. Clone this repository
 
    ```sh
-   https://github.com/NuttapolCha/lod-workshop-go.git
+   git clone https://github.com/NuttapolCha/lod-workshop-go.git
    ```
 
 2. Checkout to main branch
@@ -23,14 +23,19 @@ You will learn by doing the exercises in this workshop.
 
 ## Getting Started
 
-You are given the pre-defined structs and the function signature. You job is to implement the *HandlePersonPurchaseProducts* function that satisfying requirements;
+You are given pre-defined structs. Your job is to implement the *HandlePersonPurchaseProducts* function that handle the `person` purchasing
+any `quantity` of `productName` within a `shop`.
 
-### Requirements
+The person can purchase products if
 
-A person can purchase a quantity of products if
+1. The `person` has enough money, i.e. person's money after purchasing product must be greater than or equal to zero.
+2. The `productName` is exist within the shop and has enough quantity.
 
-1. The person has enough money, i.e. person's money after purchasing product must be greater than or equal to zero.
-2. The product is in stock and has enough quantity.
+After making purchase, the person's money and shop's product quantity must be updated.
+
+### Constraints
+
+- In case `productName` exists within the shop, it is guaranteed to be unique within a shelf.
 
 ### Submission
 
