@@ -32,10 +32,12 @@ The person can purchase products if
 2. The `productName` is exist within the shop and has enough quantity.
 
 After making purchase, the person's money and shop's product quantity must be updated.
+The function return true if the person successfully purchase the products, otherwise return false.
 
 ### Constraints
 
-- In case `productName` exists within the shop, it is guaranteed to be unique within a shelf.
+1. You cannot modify the fields of the structs.
+2. In case `productName` exists within the shop, it is guaranteed to be unique within a shelf.
 
 ### Submission
 
@@ -60,7 +62,7 @@ The promotion contains only discount field which is the fixed discount for purch
 git checkout with-promotion
 ```
 
-Try to implement the *HandlePersonPurchaseProductsWithPromotion* then try to test if your code satisfy the requirements.
+Try to implement the *HandlePersonPurchaseProductsWithPromotion* then test if your code satisfy the requirements.
 
 ```sh
 make test
