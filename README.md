@@ -23,21 +23,21 @@ You will learn by doing the exercises in this workshop.
 
 ## Getting Started
 
-You are given pre-defined structs. Your job is to implement the *HandlePersonPurchaseProducts* function that handle the `person` purchasing
+You are given pre-defined structs. Your job is to implement the `HandlePersonPurchaseProducts` function that handle the `person` purchasing
 any `quantity` of `productName` within a `shop`.
 
 The person can purchase products if
 
 1. The `person` has enough money, i.e. person's money after purchasing product must be greater than or equal to zero.
-2. The `productName` is exist within the shop and has enough quantity.
+2. The `productName` is exist within the `shop` and has enough quantity.
 
 After making purchase, the person's money and shop's product quantity must be updated.
 The function return true if the person successfully purchase the products, otherwise return false.
 
 ### Constraints
 
-1. You cannot modify the fields of the structs.
-2. In case `productName` exists within the shop, it is guaranteed to be unique within a shelf.
+1. You **cannot** modify the fields of the structs.
+2. In case `productName` exists within the `shop`, it means **there is only single (i,j)** that make `shop.Shelves[i].Products[j].Name == productName` where `i < len(shop.Shelves)` and `j < len(shop.Shelves[i].Products)`.
 
 ### Submission
 
